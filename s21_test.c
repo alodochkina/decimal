@@ -94,9 +94,9 @@ START_TEST(from_int_to_decimal3) {
 }
 END_TEST
 
-Suite *s21_decimal_test(void) {
-  Suite *s;
-  TCase *tc_core;
+Suite* s21_decimal_test(void) {
+  Suite* s;
+  TCase* tc_core;
 
   s = suite_create("s21_decimal");
   tc_core = tcase_create("Core");
@@ -119,8 +119,8 @@ Suite *s21_decimal_test(void) {
 
 int main(void) {
   int no_failed;
-  Suite *s;
-  SRunner *sr;
+  Suite* s;
+  SRunner* sr;
 
   s = s21_decimal_test();
   sr = srunner_create(s);
