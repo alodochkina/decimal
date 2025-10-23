@@ -1,4 +1,6 @@
 FLAGS = -Wall -Werror -Wextra -std=c11
+LDFLAGS = -L/opt/homebrew/lib
+IFLAGS = -I/opt/homebrew/include
 FUNC_C = s21_from_decimal_to_float.c s21_from_decimal_to_int.c s21_from_float_to_decimal.c s21_from_int_to_decimal.c
 FUNC_O = s21_from_decimal_to_float.o s21_from_decimal_to_int.o s21_from_float_to_decimal.o s21_from_int_to_decimal.o
 
@@ -17,7 +19,7 @@ s21_decimal.o:
 	gcc $(FLAGS) -c $(FUNC_C)
 
 test: clean
-	gcc $(FLAGS) -fprofile-arcs -ftest-coverage $(FUNC_C) -o test  s21_test.c -lcheck -lm -lpthread
+	gcc $(FLAGS) -fprofile-arcs -ftest-coverage $(IFLAGS) $(FUNC_C) -o test s21_test.c $(LDFLAGS) -lcheck -lm -lpthread
 	./test
 
 gcov_report: test
